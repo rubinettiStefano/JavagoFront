@@ -6,12 +6,14 @@ import {RequestClientService} from '../../services/request-client.service';
 import {Observable} from 'rxjs';
 import {TravelerReqBody} from '../../model/TravelerReqBody';
 import {FormsModule} from '@angular/forms';
+import {SingleTravelerComponent} from '../single-traveler/single-traveler.component';
 
 @Component({
   selector: 'app-travelers-summary',
   imports: [
     NgForOf,
-    FormsModule
+    FormsModule,
+    SingleTravelerComponent
   ],
   templateUrl: './travelers-summary.component.html',
   standalone: true,
