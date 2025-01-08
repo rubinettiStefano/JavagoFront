@@ -48,8 +48,8 @@ export class TravelersSummaryComponent
     )
   }
 
-  gestiscoEventoFiglio(id:number) {
-
+  gestiscoEventoFiglio(id:number)
+  {
     let posizioneFiglio = this.travelers.findIndex(f => f.id === id);
     let figlioDaSpostare = this.travelers[posizioneFiglio];
     this.travelers.splice(posizioneFiglio, 1);

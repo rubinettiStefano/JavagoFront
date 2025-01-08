@@ -10,6 +10,8 @@ import {TravelerSummary} from '../../model/TravelerSummary';
 })
 export class SingleTravelerComponent
 {
+    //Il valore di questa proprietà può essere passato dal padre
+    //tramite property binding (sintassi con le [ ] )
     @Input() traveler! : TravelerSummary;
     // @Input() traveler : TravelerSummary | null = null;
     @Output() saliCima:EventEmitter<number> = new EventEmitter<number>();
