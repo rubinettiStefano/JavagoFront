@@ -1,6 +1,6 @@
 <div *ngFor="let t of travelers">
 
-  <app-single-traveler [traveler]="t" ></app-single-traveler>
+  <app-single-traveler [traveler]="t" (saliCima)="gestiscoEventoFiglio($event)" ></app-single-traveler>
 
 </div>
 
