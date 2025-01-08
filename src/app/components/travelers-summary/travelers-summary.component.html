@@ -4,4 +4,7 @@
 
 </div>
 
-<h1>{{stringaQualsiasi}}</h1>
+<input [(ngModel)]="travelerToInsert.name" placeholder="nome">
+<input [(ngModel)]="travelerToInsert.surname" placeholder="cognome">
+<input type="date" [(ngModel)]="travelerToInsert.dob" placeholder="nascita">
+<button (click)="insert()">INSERISCI</button>

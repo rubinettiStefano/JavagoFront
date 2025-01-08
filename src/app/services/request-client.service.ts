@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TravelerSummary} from '../model/TravelerSummary';
+import {TravelerReqBody} from '../model/TravelerReqBody';
 
 //@Service di Spring
 @Injectable({
@@ -21,5 +22,10 @@ export class RequestClientService
     //altre parti del programma avranno fatto la SOTTOSCRIZIONE al segnale
     //quando arriva fanno partire una propria funzione
     return this.http.get<TravelerSummary[]>("/api/travelers");
+  }
+
+  insertTraveler(toInsert:TravelerReqBody): Observable<TravelerSummary>
+  {
+    return this.http.post<TravelerSummary>("/api/travelers",toInsert);
   }
 }

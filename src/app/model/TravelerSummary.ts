@@ -1,3 +1,4 @@
+//TravelerDTORespSummary in Java
 export interface TravelerSummary {
     id: number;
     name: string;

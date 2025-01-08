@@ -4,11 +4,14 @@ import {HttpClient} from '@angular/common/http';
 import {NgForOf} from '@angular/common';
 import {RequestClientService} from '../../services/request-client.service';
 import {Observable} from 'rxjs';
+import {TravelerReqBody} from '../../model/TravelerReqBody';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-travelers-summary',
   imports: [
-    NgForOf
+    NgForOf,
+    FormsModule
   ],
   templateUrl: './travelers-summary.component.html',
   standalone: true,
@@ -17,6 +20,7 @@ import {Observable} from 'rxjs';
 export class TravelersSummaryComponent
 {
   travelers: TravelerSummary[] = [];
+  travelerToInsert: TravelerReqBody = {  name: "",surname: "",address: "",email: "",phone: "",profession: "",dob: null};
 
   stringaQualsiasi:string = "ciao";
   constructor(private serv: RequestClientService)
@@ -24,17 +28,23 @@ export class TravelersSummaryComponent
       //questo è il mio observable
     //dentro subscribe io inserisco una funzione, una CALLBACK
     //tale funzione verrà richiamata quando l'observable darà il segnale
-    console.log("REQUEST PARTITA")
-    console.log(Date.now())
      serv.getAllTravelersSummary().subscribe(
        (resp)=>{
-         console.log("RESPONSE ARRIVATA")
-         console.log(resp)
          this.travelers = resp;
        }
      );
   }
 
+  insert() {
+    this.serv.insertTraveler(this.travelerToInsert).subscribe(
+      (resp)=>{
+
+        this.travelers.push(resp);
+        this.travelerToInsert = {  name: "",surname: "",address: "",email: "",phone: "",profession: "",dob: null};
+      }
+
+    )
+  }
 }
 
 // (parametri)=>{
